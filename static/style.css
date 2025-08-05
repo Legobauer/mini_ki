@@ -1,0 +1,88 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f1f1f1;
+    padding: 20px;
+    max-width: 700px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile {
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.name-form,
+.chat-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 14px;
+    font-size: 16px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.chat-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.chat-message.user {
+    align-items: flex-end;
+}
+
+.sender {
+    font-size: 12px;
+    margin-bottom: 3px;
+    color: #555;
+}
+
+.bubble {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 70%;
+    line-height: 1.4;
+}
+
+.chat-message.user .bubble {
+    background-color: #6fff00;
+    align-self: flex-end;
+}
+
+.chat-message.bot .bubble {
+    background-color: #eeeeee;
+}

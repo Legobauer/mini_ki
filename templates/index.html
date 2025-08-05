@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>KI-Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>🤖 KI-Chatbot</h1>
+
+    {% if username %}
+    <div class="profile">
+        👤 Angemeldet als <strong>{{ username }}</strong>
+        <form method="POST" action="/reset">
+            <button type="submit">Profil ändern</button>
+        </form>
+    </div>
+    {% else %}
+    <form method="POST" action="/set_name" class="name-form">
+        <input type="text" name="username" placeholder="Dein Name" required>
+        <button type="submit">Starten</button>
+    </form>
+    {% endif %}
+
+    <div class="chat-box" id="chat-box">
+        {% for msg in history %}
+            <div class="chat-message {{ msg.role }}">
+                <div class="sender">
+                    {% if msg.role == 'bot' %}
+                        Mini-KI
+                    {% else %}
+                        {{ username }}
+                    {% endif %}
+                </div>
+                <div class="bubble">{{ msg.content }}</div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if username %}
+    <form method="POST" action="/ask" class="chat-form">
+        <input type="text" name="question" placeholder="Nachricht eingeben…" required>
+        <button type="submit">Senden</button>
+    </form>
+    {% endif %}
+
+    <script>
+        window.onload = function() {
+            const chatBox = document.getElementById("chat-box");
+            chatBox.scrollTop = chatBox.scrollHeight;
+        };
+    </script>
+</body>
+</html>
